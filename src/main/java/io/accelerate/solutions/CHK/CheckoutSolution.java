@@ -46,16 +46,20 @@ public class CheckoutSolution {
         int remainingA = countA % 5;
         int bundlesOf3A = remainingA / 3;
         int singlesA = remainingA % 3;
-
         total += (bundlesOf5A * 200) + (bundlesOf3A * 130) + (singlesA * 50);
+
         total += (countB / 2) * 45 + (countB % 2) * 30;
+
         total += countC * 20;
         total += countD * 15;
         total += countE * 40;
 
+        total += (countF / 3) * 20 + (countF % 3) * 10;
+
         return total;
     }
 }
+
 
 
 
