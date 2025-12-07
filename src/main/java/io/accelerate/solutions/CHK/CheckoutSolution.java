@@ -33,7 +33,7 @@ public class CheckoutSolution {
                     countE++;
                     break;
                 case 'F':
-                    countE++;
+                    countF++;
                     break;
                 default:
                     return -1;
@@ -59,6 +59,7 @@ public class CheckoutSolution {
         return total;
     }
 }
+
 
 
 
