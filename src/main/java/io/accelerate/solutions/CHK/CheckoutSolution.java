@@ -1,5 +1,10 @@
 package io.accelerate.solutions.CHK;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 public class CheckoutSolution {
     public Integer checkout(String skus) {
         if (skus == null) {
@@ -26,6 +31,29 @@ public class CheckoutSolution {
 
         int total = 0;
 
+        
+        int countS = counts['S' - 'A'];
+        int countT = counts['T' - 'A'];
+        int countX = counts['X' - 'A'];
+        int countY = counts['Y' - 'A'];
+        int countZ = counts['Z' - 'A'];
+
+        int totalGroupItems = countS + countT + countX + countY + countZ;
+        int numberOfGroups = totalGroupItems / 3;
+        
+        total += numberOfGroups * 45;
+
+        int itemsToRemove = numberOfGroups * 3;
+
+        char[] priority = {'Z', 'S', 'T', 'Y', 'X'};
+        
+        for (char item : priority) {
+            while (itemsToRemove > 0 && counts[item - 'A'] > 0) {
+                counts[item - 'A']--;
+                itemsToRemove--;
+            }
+        }
+
         for (int i = 0; i < 26; i++) {
             char item = (char) ('A' + i);
             int count = counts[i];
@@ -40,7 +68,7 @@ public class CheckoutSolution {
                         total += count * 50;
                         break;
 
-                    case 'B': 
+                    case 'B':
                         total += (count / 2) * 45 + (count % 2) * 30;
                         break;
 
@@ -48,7 +76,7 @@ public class CheckoutSolution {
                     case 'D': total += count * 15; break;
                     case 'E': total += count * 40; break;
 
-                    case 'F': 
+                    case 'F':
                         total += (count / 3) * 20 + (count % 3) * 10;
                         break;
 
@@ -65,8 +93,8 @@ public class CheckoutSolution {
                     case 'I': total += count * 35; break;
                     case 'J': total += count * 60; break;
 
-                    case 'K':
-                        total += (count / 2) * 150 + (count % 2) * 80;
+                    case 'K': 
+                        total += (count / 2) * 120 + (count % 2) * 70;
                         break;
 
                     case 'L': total += count * 90; break;
@@ -74,7 +102,7 @@ public class CheckoutSolution {
                     case 'N': total += count * 40; break;
                     case 'O': total += count * 10; break;
 
-                    case 'P': 
+                    case 'P':
                         total += (count / 5) * 200 + (count % 5) * 50;
                         break;
 
@@ -83,9 +111,10 @@ public class CheckoutSolution {
                         break;
 
                     case 'R': total += count * 50; break;
-                    case 'S': total += count * 30; break; 
+                    
+                    case 'S': total += count * 20; break; 
                     case 'T': total += count * 20; break; 
-
+                    
                     case 'U': 
                         total += (count / 4) * 120 + (count % 4) * 40;
                         break;
@@ -99,9 +128,9 @@ public class CheckoutSolution {
                         break;
 
                     case 'W': total += count * 20; break;
-                    case 'X': total += count * 90; break; 
-                    case 'Y': total += count * 10; break; 
-                    case 'Z': total += count * 50; break;
+                    case 'X': total += count * 17; break; 
+                    case 'Y': total += count * 20; break; 
+                    case 'Z': total += count * 21; break;
                 }
             }
         }
@@ -109,3 +138,4 @@ public class CheckoutSolution {
         return total;
     }
 }
+
