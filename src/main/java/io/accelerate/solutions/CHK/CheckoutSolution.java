@@ -13,6 +13,7 @@ public class CheckoutSolution {
         int countC = 0;
         int countD = 0;
         int countE = 0;
+        int countF = 0;
 
         for (char c : skus.toCharArray()) {
             switch (c) {
@@ -29,6 +30,9 @@ public class CheckoutSolution {
                     countD++;
                     break;
                 case 'E':
+                    countE++;
+                    break;
+                case 'F':
                     countE++;
                     break;
                 default:
@@ -52,5 +56,6 @@ public class CheckoutSolution {
         return total;
     }
 }
+
 
 
